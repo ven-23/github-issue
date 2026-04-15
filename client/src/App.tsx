@@ -76,7 +76,8 @@ const App: React.FC = () => {
     setStatus({ type: 'loading', message: 'Submitting issue to GitHub...' });
 
     try {
-      await axios.post('http://localhost:5000/api/create-issue', formData);
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      await axios.post(`${apiUrl}/api/create-issue`, formData);
 
       setStatus({
         type: 'success',
