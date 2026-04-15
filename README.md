@@ -1,96 +1,61 @@
-# GitHub Issue Proxy Portal
+# Issue Builder 🛠️
 
-A secure, full-stack web application that allows users to submit feedback and issues directly to a GitHub repository without requiring them to have GitHub accounts or organization access.
+A high-fidelity, professional issue-building platform that allows anyone to submit feedback and issues directly to your GitHub repository—no GitHub account or organization access required.
 
-## 🚀 Overview
+## 🚀 Professional Issue Proxying
 
-This project serves as a bridge (proxy) between your users and your GitHub repository. It provides a clean, professional form for users to fill out, which then uses a secure backend to create issues via the GitHub REST API.
+Issue Builder is designed for teams that want to bridge the gap between their non-technical users and their technical issue trackers. It provides a secure, streamlined "Studio" where users can construct clear, actionable issues that are then securely proxied to your private repository via the GitHub REST API.
 
 ### Key Features
-- **Secure Integration**: Sensitive GitHub Personal Access Tokens (PAT) are stored safely on the server, never exposed to the frontend.
-- **Modern UI**: Clean, responsive design with glassmorphism aesthetics and smooth animations.
-- **Rate Limiting**: Built-in protection against spam and automated submissions.
-- **Priority Mapping**: Automatically maps form selections to GitHub issue labels (e.g., `priority-low`, `priority-high`).
+- **Elite Senior UI/UX**: A clean 2-column "Studio" layout with professional design tokens, high-fidelity spacing, and responsive aesthetics.
+- **Secure End-to-End**: Your GitHub Personal Access Tokens (PAT) are stored safely on the server and never exposed to the client.
+- **Hexagonal Engineering Identity**: Unique, custom-branded SVG logo and interface.
+- **Priority Intelligence**: Automatically maps priority levels to GitHub issue labels (`priority-low`, `priority-high`).
+- **Spam Protection**: Built-in rate limiting and input validation.
 
 ---
 
 ## 🏗️ Architecture
 
-The project is split into two main components:
-
-### 1. Client (Frontend)
-- **Technology**: React 19, Vite, TypeScript.
-- **Styling**: Vanilla CSS with modern HSL color palettes and Lucide React icons.
-- **Role**: Collects user input, performs client-side validation, and sends data to the Proxy Server.
-
-### 2. Server (Backend)
-- **Technology**: Node.js, Express.
-- **Role**: Receives form data, authenticates with GitHub using a PAT, and creates the issue in the target repository.
-- **Middleware**: Includes CORS for frontend interaction and `express-rate-limit` for spam protection.
+- **Client (Frontend)**: React 19, Vite, TypeScript, Lucide Icons, Custom SVG Branding.
+- **Server (Backend)**: Node.js, Express, Axios, GitHub REST API v3.
+- **Security**: Cross-Origin Resource Sharing (CORS) and `express-rate-limit`.
 
 ---
 
 ## 🛠️ Setup & Installation
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
-
 ### 1. Backend Configuration
-1. Navigate to the `server` directory:
-   ```bash
-   cd server
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env` file based on `.env.example`:
+1. Navigate to `server/` and run `npm install`.
+2. Create a `.env` file:
    ```env
    PORT=5000
-   GITHUB_TOKEN=your_fine_grained_pat
-   GITHUB_OWNER=your_github_username
-   GITHUB_REPO=your_repository_name
+   GITHUB_TOKEN=your_classic_pat
+   GITHUB_OWNER=Shore360
+   GITHUB_REPO=github-issue
    ```
 
 ### 2. Frontend Configuration
-1. Navigate to the `client` directory:
-   ```bash
-   cd client
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+1. Navigate to `client/` and run `npm install`.
 
-### 3. Running the Project
-- **Start Backend**: Run `npm run dev` in the `server` directory.
-- **Start Frontend**: Run `npm run dev` in the `client` directory.
+### 3. Running Locally
+- Run `npm run dev` in both `client/` and `server/` directories.
 
 ---
 
-## 🔑 GitHub Token Configuration
+## 🔑 GitHub Configuration
 
-To allow the server to create issues, you must generate a **Fine-grained Personal Access Token**:
-
-1. Go to [GitHub Token Settings](https://github.com/settings/tokens?type=beta).
-2. Click **Generate new token**.
-3. **Repository access**: Select "Only select repositories" and choose your target repo.
-4. **Permissions**:
-   - Under **Repository permissions**, find **Issues**.
-   - Set "Issues" to **Read and Write**.
-5. Copy the generated token and paste it into `server/.env`.
+For the best experience, use a **Personal Access Token (Classic)**:
+1. Go to [GitHub Token Settings (Classic)](https://github.com/settings/tokens).
+2. Generate a new token with the **`repo`** scope.
+3. Update your `server/.env` and restart the server.
 
 ---
 
-## 🛡️ Security Note
+## 🛡️ Security & Privacy
 
-- **Never** share your `server/.env` file or commit it to version control.
-- The `GITHUB_TOKEN` is strictly handled by the `server`. The `client` only knows about your `localhost:5000` endpoint.
-- Rate limiting is set to **20 requests per 15 minutes** per IP by default.
+Issue Builder includes comprehensive `.gitignore` protection to ensure your sensitive credentials and local dependencies are never pushed to public version control.
 
 ---
 
-## 🎨 UI Customization
-
-The main styles are located in `client/src/App.css`. You can easily change the `--primary`, `--bg`, and `--card-bg` CSS variables to match your brand's colors.
+© 2026 Issue Builder Studio • Secure SSL Endpoint • Powered by GitHub REST v3
