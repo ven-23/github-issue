@@ -2,7 +2,7 @@
 
 A high-fidelity, professional issue-building platform that allows anyone to submit feedback and issues directly to your GitHub repository—no GitHub account or organization access required.
 
-## 🚀 Professional Issue Proxying
+## 🚀 Overview
 
 Issue Builder is designed for teams that want to bridge the gap between their non-technical users and their technical issue trackers. It provides a secure, streamlined "Studio" where users can construct clear, actionable issues that are then securely proxied to your private repository via the GitHub REST API.
 
@@ -30,9 +30,9 @@ Issue Builder is designed for teams that want to bridge the gap between their no
 2. Create a `.env` file:
    ```env
    PORT=5000
-   GITHUB_TOKEN=your_classic_pat
-   GITHUB_OWNER=Shore360
-   GITHUB_REPO=github-issue
+   GITHUB_TOKEN=your_fine_grained_pat
+   GITHUB_OWNER=your_github_username
+   GITHUB_REPO=your_repository_name
    ```
 
 ### 2. Frontend Configuration
